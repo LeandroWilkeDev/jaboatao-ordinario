@@ -41,32 +41,6 @@ export const ShareBar: React.FC<ShareBarProps> = ({
     }
   };
 
-  const buttons = [
-    {
-      id: 'whatsapp',
-      label: 'WhatsApp',
-      icon: <MessageCircle className="h-4 w-4" />,
-      bg: '#25D366',
-      color: '#fff',
-    },
-    {
-      id: 'telegram',
-      label: 'Telegram',
-      icon: <Send className="h-4 w-4" />,
-      bg: '#229ED9',
-      color: '#fff',
-      href: `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}`,
-    },
-    {
-      id: 'twitter',
-      label: 'X',
-      icon: <TwitterXIcon />,
-      bg: '#000',
-      color: '#fff',
-      href: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
-    },
-  ];
-
   const content = (
     <div className="flex items-center gap-2 flex-wrap">
       <span className="flex items-center gap-1.5 text-xs font-semibold text-neutral-500 dark:text-neutral-400 shrink-0">
