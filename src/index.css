@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+/* ───────── Brand Color Variables ───────── */
+:root {
+  --brand-yellow: #FAC61A;
+  --brand-yellow-dark: #d9a800;
+  --brand-yellow-light: #fde68a;
+  --brand-purple: #29034A;
+  --brand-purple-mid: #3d0870;
+  --brand-purple-light: #5b0fa6;
+  --brand-purple-faint: #f5f0fa;
+
+  /* Semantic aliases (light mode) */
+  --color-accent: var(--brand-yellow);
+  --color-accent-dark: var(--brand-yellow-dark);
+  --color-primary: var(--brand-purple);
+  --color-primary-mid: var(--brand-purple-mid);
+  --color-primary-light: var(--brand-purple-light);
+  --color-primary-faint: var(--brand-purple-faint);
+}
+
+.dark {
+  --color-primary-faint: #1a002e;
+}
+
+/* ───────── Custom Base ───────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar hidden utility */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Serif font utility */
+.font-serif {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
+/* Drop cap for article first paragraph */
+.drop-cap::first-letter {
+  float: left;
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: var(--brand-purple);
+  line-height: 0.75;
+  margin-right: 0.1em;
+  margin-top: 0.1em;
+}
+
+.dark .drop-cap::first-letter {
+  color: var(--brand-yellow);
+}
+
+/* Prose overrides */
+.prose p {
+  margin-bottom: 1.4em;
+  line-height: 1.8;
+}
+.prose a {
+  color: var(--brand-purple);
+  text-decoration: underline;
+}
+.dark .prose a {
+  color: var(--brand-yellow);
+}
+.prose blockquote {
+  border-left: 4px solid var(--brand-yellow);
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15em;
+  color: #374151;
+  padding-left: 1.2em;
+  margin: 1.5em 0;
+}
+.dark .prose blockquote {
+  color: #D1D5DB;
+}
+
+/* Custom selection color */
+::selection {
+  background-color: #fde68a;
+  color: var(--brand-purple);
+}
+.dark ::selection {
+  background-color: var(--brand-purple);
+  color: var(--brand-yellow);
+}
+
+/* Smooth image loading */
+img {
+  display: block;
+}
+
+/* Ticker animation keyframes */
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ───────── Mobile-first utilities ───────── */
+
+/* Mobile touch target minimum size */
+@media (max-width: 768px) {
+  button, a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Better tap highlight */
+  * {
+    -webkit-tap-highlight-color: rgba(250, 198, 26, 0.15);
+  }
+}
+
+/* Safe area insets for notched phones */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
